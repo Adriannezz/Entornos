@@ -1,29 +1,48 @@
 import java.util.ArrayList;
 import java.util.List;
 
-
+/**
+ * Clase que gestiona estudiantes y ciclos formativos.
+ */
 public class GestionCicloFP {
 
     private List<Estudiante> estudiantes;
     private List<Ciclo> ciclos;
 
-    
+    /**
+     * Constructor que inicializa las listas.
+     */
     public GestionCicloFP() {
         estudiantes = new ArrayList<>();
         ciclos = new ArrayList<>();
     }
 
- 
+    /**
+     * Agrega un nuevo estudiante al sistema.
+     *
+     * @param nombre nombre del estudiante
+     * @param id     identificador único
+     * @param edad   edad del estudiante
+     */
     public void agregarEstudiante(String nombre, int id, int edad) {
         estudiantes.add(new Estudiante(nombre, id, edad));
     }
 
-  
+    /**
+     * Agrega un nuevo ciclo formativo.
+     *
+     * @param nombreCiclo nombre del ciclo
+     */
     public void agregarCiclo(String nombreCiclo) {
         ciclos.add(new Ciclo(nombreCiclo));
     }
 
-   
+    /**
+     * Matricula un estudiante en un ciclo.
+     *
+     * @param idEstudiante ID del estudiante
+     * @param nombreCiclo  nombre del ciclo
+     */
     public void matricularEstudiante(int idEstudiante, String nombreCiclo) {
         Estudiante estudiante = buscarEstudiante(idEstudiante);
         Ciclo ciclo = buscarCiclo(nombreCiclo);
@@ -51,7 +70,9 @@ public class GestionCicloFP {
         return null;
     }
 
-    
+    /**
+     * Muestra por consola todos los ciclos y sus estudiantes.
+     */
     public void mostrarCiclos() {
         for (Ciclo ciclo : ciclos) {
             System.out.println(ciclo.obtenerDatosCiclo());
